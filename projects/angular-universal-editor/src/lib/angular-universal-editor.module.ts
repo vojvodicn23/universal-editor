@@ -16,8 +16,6 @@ import { VerticalLineComponent } from './components/vertical-line/vertical-line.
 import { TooltipDirective } from './shared/tooltip.directive';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -39,7 +37,6 @@ import { HttpClientModule } from '@angular/common/http';
     DatepickerComponent
   ],
   imports: [
-    BrowserModule,
     CommonModule,
     ReactiveFormsModule
   ],

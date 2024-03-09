@@ -1,6 +1,6 @@
 {
   "name": "angular-universal-editor",
-  "version": "1.0.0",
+  "version": "1.0.2",
 
   "description": "This is the universal editor library for Angular",
   "keywords": ["editor", "angular", "wysiwyg", "rich-text-editor", "wysiwyg-editor", "mentions", "text-format","universal-editor"],
