@@ -1,0 +1,40 @@
+
+
+.universal-editor-dropdown-content-more-options{
+    background-color: var(--background-color, white);
+    border-color: var(--border-color,#8692A6);  
+    display: none;
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    z-index: 5;
+    width: 220px;
+}
+
+.universal-editor-options{
+    padding: 5px 14px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.universal-editor-options:hover{
+    background-color: var(--button-hover-color,lightgray);
+}
+
+.universal-editor-options-selected{
+    background-color: var(--button-active-color,lightblue);
+}
+.universal-editor-options-disabled{
+    color: var(--text-color-disabled,#8692A6);
+    cursor: default;
+}
+
+.options-shortcut{
+    margin-left: auto;
+    background-color: var(--background-code-color,gray); 
+    padding: 4px 4px;
+    border-radius: 4px;
+}

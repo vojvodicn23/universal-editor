@@ -1,0 +1,19 @@
+<form [formGroup]="altTextForm">
+    <p class="edit-altText-label">Alt text</p>
+    <input formControlName="altText" class="edit-altText-input" type="text" >
+
+    <div>
+        <universal-button 
+        [bigButtton]="true"
+        [isSelected]="!altTextForm.invalid && true"
+        [isDisabled]="altTextForm.invalid"
+        (click)="submitForm()"
+        >Save</universal-button>
+
+        <universal-button
+         style="margin-left: 10px;"
+         [bigButtton]="true"
+         (click)="cancelForm()"
+         >Cancel</universal-button>
+    </div>
+</form>

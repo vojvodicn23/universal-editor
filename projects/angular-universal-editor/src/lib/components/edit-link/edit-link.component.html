@@ -1,0 +1,24 @@
+<form [formGroup]="linkForm">
+    <p class="edit-link-label">Link</p>
+    <input formControlName="link" class="edit-link-input" type="text" >
+
+    <p class="edit-link-label">Display text (optional)</p>
+    <input formControlName="text" class="edit-link-input" type="text">
+
+    <div>
+        <universal-button 
+        [bigButtton]="true"
+        [isSelected]="!linkForm.invalid && true"
+        [isDisabled]="linkForm.invalid"
+        (click)="submitForm()"
+        >Save</universal-button>
+
+        <universal-button
+         style="margin-left: 10px;"
+         [bigButtton]="true"
+         (click)="cancelForm()"
+         >Cancel</universal-button>
+    </div>
+</form>
+
+

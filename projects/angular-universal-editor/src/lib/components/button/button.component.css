@@ -1,0 +1,37 @@
+.universal-editor-button{
+    position: relative;
+    align-items: center;
+    border-radius: 3px;
+    border: none;
+    background-color: transparent;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: inherit;
+    padding: 0 3px;
+    height: 26px;
+    transition: 0.5s;
+    color: var(--text-color,#8692A6);
+}
+
+.universal-editor-button:not(:disabled):hover{
+    background-color: var(--button-hover-color,lightgray);
+}
+
+.selected{
+    background-color: var(--button-active-color,lightblue);
+}
+
+.universal-editor-button.selected:not(:disabled):hover{
+    background-color: var(--button-active-hover-color,lightblue);
+}
+
+.universal-editor-button:disabled{
+    color: var(--text-color-disabled,#8692A6);
+    cursor: default;
+}
+
+.bigButtton{
+    padding: 16px 10px;
+}

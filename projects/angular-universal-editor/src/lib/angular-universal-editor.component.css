@@ -1,0 +1,353 @@
+
+.universal-editor{
+    width: 100%;
+    color: var(--text-color, black);
+    
+}
+
+.universal-editor-header{
+    background-color: var(--background-header-color, white);
+    border-color: var(--border-color, #8692A6); 
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 6px 10px;
+    padding-top: 7px;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.universal-editor-content{
+    background-color: var(--background-color, white);
+    border-color: var(--border-color,#8692A6);  
+    border-width: 1px;
+    border-style: solid;
+    height: 100%;
+    min-height: 80px;
+    position: relative;
+    padding: 0px 20px;
+    padding-top: 15px;
+    overflow-y: auto;
+    text-decoration: none;
+    word-wrap: break-word;
+    overflow-y: auto;
+}
+
+.universal-editor-files{
+    background-color: var(--background-color, white);
+    border-color: var(--border-color,#8692A6);  
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    align-items: center;
+    position: relative;
+    padding: 10px 20px;
+    gap: 10px;
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* :host ::ng-deep .universal-editor-content::after {
+    content: 'https://github.com/vojvodicn23';
+    position: absolute;
+    bottom: 10px; 
+    right: 10px; 
+    color: black; 
+    font-size: 12px; 
+    z-index: 9999;
+    width: 151px;
+    height: 15px;
+} */
+
+.universal-editor-content:focus{
+    outline: none;
+}
+
+.universal-editor-content:empty:before {
+    content: attr(placeholderValue);
+    pointer-events: none; 
+    color: #8692A6;
+}
+
+.universal-editor-popup{
+    background-color: var(--background-header-color, white);
+    border-color: var(--border-color, #8692A6); 
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    flex-direction: row;
+    display: none;
+    position: absolute;
+    align-items: center;
+    padding: 4px 8px;
+    z-index: 11;
+}
+
+.universal-editor-popup-edit{
+    background-color: var(--background-color, white);
+    border-color: var(--border-color, #8692A6); 
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    display: none;
+    position: absolute;
+    align-items: center;
+    padding: 14px 14px;
+    z-index: 12;
+}
+
+
+.universal-editor-mention{
+    background-color: var(--background-color, white);
+    border-color: var(--border-color,#8692A6);  
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    display: none;
+    position: absolute;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 11;
+}
+
+.universal-editor-mention-backdrop{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+:host ::ng-deep .universal-tag{
+    color: var(--universal-tag-color,blue);  
+}
+
+:host ::ng-deep .universal-editor-tag{
+    background-color: var(--tooltip-color,gray);  
+    color: var(--tooltip-text-color,white);  
+    padding: 2px 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline;
+}
+:host ::ng-deep .universal-editor-tag:hover{
+    background-color: var(--tooltip-hover-color,lightgray); 
+}
+
+:host ::ng-deep .universal-editor-date-widget{
+    background-color: var(--background-code-color,gray);
+    /* background-color: var(--tooltip-color,gray);  
+    color: var(--tooltip-text-color,white);   */
+    padding: 2px 4px;
+    font: bold;
+    font-size: 12px;
+    margin: 0px 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline;
+}
+:host ::ng-deep .universal-editor-date-widget:hover{
+    background-color: var(--tooltip-hover-color,lightgray); 
+}
+
+.universal-editor-datepicker{
+    display: none;
+    position: absolute;
+    z-index: 11;
+}
+
+
+:host ::ng-deep .universal-editor-tag-selected{
+    color: white;
+    background-color: rgb(29, 108, 226);
+}
+:host ::ng-deep .universal-editor-tag-selected:hover{
+    background-color:rgb(9, 86, 202);
+}
+
+.universal-editor-content p{
+    margin-top: 0px !important;
+}
+
+:host ::ng-deep p,:host ::ng-deep h1,:host ::ng-deep h2,:host ::ng-deep h3,:host ::ng-deep h4,:host ::ng-deep h5,:host ::ng-deep h6{
+    margin-top: 0px;
+}
+
+:host ::ng-deep .tooltip {
+    background-color: var(--tooltip-color,gray);  
+    color: var(--tooltip-text-color,white);  
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1000;
+    font-size: 12px;
+    font-weight: 300;
+    width: max-content;
+    /* max-width: 100px; */
+}
+
+:host ::ng-deep.button-icon{
+    background-size: 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width:20px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+:host ::ng-deep.img-wrapper{
+    display: flex;
+    margin-bottom: 16px;
+    /* justify-content: start; */  /* IF EVER CHANGE IMAGE HORIZONTAL POSITION */
+}
+:host ::ng-deep.img-wrapper-sizer{
+    width: 24px;
+    display: none;
+    align-items: center;
+    cursor: col-resize;
+}
+:host ::ng-deep.img-wrapper-sizer-visual{
+    background-color: rgb(29, 108, 226);
+    width: 25%;
+    height: 33%;
+    margin-inline: auto;
+    border-radius: 10px;
+}
+:host ::ng-deep .img-wrapper-sizer-visual:hover{
+    background-color:rgb(9, 86, 202);
+}
+
+:host ::ng-deep .code-wrapper{
+    display: flex;
+    background-color: var(--background-code-color,gray); 
+    border-radius: 4px;
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+:host ::ng-deep .code-wrapper.code-wrapper-selected{
+    border: var(--button-active-color,lightblue) 1px solid;
+}
+:host ::ng-deep .code-wrapper.code-wrapper-collapsed{
+    height: 38px;
+    overflow-y: hidden;
+    border-bottom: var(--border-color,#8692A6) 10px;
+    border-bottom-style:double;
+}
+:host ::ng-deep .code-counter{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 8px 8px;
+    background-color: var(--border-color,#8692A6);  
+}
+:host ::ng-deep .code-counter.code-counter-selected{
+    background-color: var(--button-active-color,lightblue);  
+}
+
+:host ::ng-deep code{
+    white-space: pre;
+    overflow-x: auto;
+    padding: 8px 8px;
+}
+:host ::ng-deep .code-collapsed{
+    overflow:hidden; 
+}
+
+:host ::ng-deep .table-wrapper{
+   /*  margin: 0px 20px 16px 20px; */
+    margin-bottom: 16px;
+    overflow-x: auto;
+}
+
+:host ::ng-deep table{
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+:host ::ng-deep td, :host ::ng-deep th{
+    position: relative;
+    text-align: left;
+    word-wrap: break-word;
+    white-space: normal;
+    padding: 10px 8px 0px 8px;
+    border-color: var(--border-color, #8692A6); 
+    border-width: 1px;
+    border-style: solid;
+    min-width: 150px;
+}
+::ng-deep th{
+    background-color: var(--background-table-header-color, white);
+}
+:host ::ng-deep .cell-selected{
+    outline: var(--button-active-color,lightblue) 2px solid;
+    outline-offset: -2px;
+}
+:host ::ng-deep .cell-selected-remove{
+    outline: #DC143C 2px solid;
+    outline-offset: -2px;
+}
+:host ::ng-deep td p ,:host ::ng-deep th p{
+    margin-bottom: 10px;
+}
+
+
+:host ::ng-deep ol[numbered-list-indent-level="1"], :host ::ng-deep ol[numbered-list-indent-level="4"] {
+    list-style-type: decimal;
+}
+:host ::ng-deep ol[numbered-list-indent-level="2"], :host ::ng-deep ol[numbered-list-indent-level="5"] {
+    list-style-type: lower-alpha;
+}
+:host ::ng-deep ol[numbered-list-indent-level="3"], :host ::ng-deep ol[numbered-list-indent-level="6"] {
+    list-style-type: lower-roman;
+}
+
+:host ::ng-deep ul[bullet-list-indent-level="1"], :host ::ng-deep ul[bullet-list-indent-level="4"] {
+    list-style-type: disc;
+}
+:host ::ng-deep ul[bullet-list-indent-level="2"], :host ::ng-deep ul[bullet-list-indent-level="5"] {
+    list-style-type: circle;
+}
+:host ::ng-deep ul[bullet-list-indent-level="3"], :host ::ng-deep ul[bullet-list-indent-level="6"] {
+    list-style-type: square;
+}
+
+:host ::ng-deep a{
+    color: #0052CC;
+    text-decoration: none;
+}
+
+:host ::ng-deep .remove{
+    /* border: red 1px solid;
+    border-radius: 5px;
+    padding: 2px; */
+    text-decoration: line-through;
+    text-decoration-color: red;
+    opacity: 0.5;
+}
+
+:host ::ng-deep .remove-button{
+   background-color: #DC143C !important;
+}
+
+:host ::ng-deep::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+  
+:host ::ng-deep::-webkit-scrollbar-thumb {
+    background-color: var(--border-color,#8692A6);  
+    border-radius: 2px; 
+    cursor: default !important;
+}

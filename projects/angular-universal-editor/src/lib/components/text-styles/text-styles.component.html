@@ -1,0 +1,39 @@
+
+<div class="universal-editor-text-styles">
+
+    <universal-button [showIcon]="true" tooltip="Text styles" [isOpen]="isOpen" [isDisabled]="disabled" [darkMode]="darkMode">
+        {{selectedStyle}}
+    </universal-button>
+
+    <div class="universal-editor-dropdown-content-text-styles">
+        <div class="universal-editor-style" (click)="onSelect('p')" 
+        [class.universal-editor-style-selected]="pSelected">
+            <p style="margin-bottom: 0px;">Normal text</p>
+        </div>
+        <div class="universal-editor-style" (click)="onSelect('h1')" 
+        [class.universal-editor-style-selected]="h1Selected">
+            <h1 style="margin-bottom: 0px;">Heading 1</h1>
+        </div>
+        <div class="universal-editor-style" (click)="onSelect('h2')" 
+        [class.universal-editor-style-selected]="h2Selected">
+            <h2 style="margin-bottom: 0px;">Heading 2</h2>
+        </div>
+        <div class="universal-editor-style" (click)="onSelect('h3')" 
+        [class.universal-editor-style-selected]="h3Selected">
+            <h3 style="margin-bottom: 0px;">Heading 3</h3>
+        </div>
+        <div class="universal-editor-style" (click)="onSelect('h4')" 
+        [class.universal-editor-style-selected]="h4Selected">
+            <h4 style="margin-bottom: 0px;">Heading 4</h4>
+        </div>
+        <div class="universal-editor-style" (click)="onSelect('h5')" 
+        [class.universal-editor-style-selected]="h5Selected">
+            <h5 style="margin-bottom: 0px;">Heading 5</h5>
+        </div>
+        <div class="universal-editor-style" (click)="onSelect('h6')" 
+        [class.universal-editor-style-selected]="h6Selected">
+            <h6 style="margin-bottom: 0px;">Heading 6</h6>
+        </div>
+    </div>
+
+</div>

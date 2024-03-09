@@ -1,0 +1,30 @@
+.color-tile-border{
+    border: 1px transparent solid;
+    padding: 1px;
+    border-radius: 4px;
+}
+
+.color-tile{
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    position:relative;
+    cursor: pointer;
+}
+
+.color-tile-border:hover{
+    border-color: lightgray;
+}
+
+.selected-icon{
+    background-size: 22px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    left: 2px;
+    top: 1px;
+}

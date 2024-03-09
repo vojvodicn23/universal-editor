@@ -1,0 +1,47 @@
+.universal-editor-datepicker{
+    background-color: var(--background-color, white);
+    border-color: var(--border-color, #8692A6); 
+    color: var(--text-color, black);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    padding: 14px;
+    width: 270px;
+}
+  
+.universal-editor-datepicker-header{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.universal-editor-datepicker-weekdays{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  font-size: 12px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.universal-editor-datepicker-weekday{
+  display: flex;
+  flex-direction: row;
+  width: 26px;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.universal-editor-datepicker-days{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 11px;
+    justify-content: center;
+}

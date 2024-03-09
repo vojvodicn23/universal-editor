@@ -1,0 +1,44 @@
+<div class="universal-editor-datepicker">
+    <div class="universal-editor-datepicker-header">
+      <universal-button 
+        (click)="goToPreviousYear()"
+        ><icon icon="double-arrow-left" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+      </universal-button>
+      <universal-button 
+        (click)="goToPreviousMonth()"
+        ><icon icon="arrow-left" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+      </universal-button>
+      <span>{{ shownMonthName }} {{ shownYear }}</span>
+      <universal-button 
+        (click)="goToNextMonth()"
+        ><icon icon="arrow-right" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+      </universal-button>
+      <universal-button 
+        (click)="goToNextYear()"
+        ><icon icon="double-arrow-right" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+      </universal-button>
+      
+    </div>
+    <div class="universal-editor-datepicker-weekdays">
+      <div class="universal-editor-datepicker-weekday">SUN</div>
+      <div class="universal-editor-datepicker-weekday">MON</div>
+      <div class="universal-editor-datepicker-weekday">TUE</div>
+      <div class="universal-editor-datepicker-weekday">WED</div>
+      <div class="universal-editor-datepicker-weekday">THU</div>
+      <div class="universal-editor-datepicker-weekday">FRI</div>
+      <div class="universal-editor-datepicker-weekday">SAT</div>
+    </div>
+    <div class="universal-editor-datepicker-days">
+      <universal-button *ngFor="let day of days"
+        style="justify-content: center; display: flex;"
+        [isSelected]="day.day === currentDate.getDate() && day.month === currentDate.getMonth() && day.year === currentDate.getFullYear()"
+        (click)="pickDate(day)"
+        ><span style="width: 32px;"
+        [style.border-bottom]="day.day === todayDate.getDate() && day.month === todayDate.getMonth() && day.year === todayDate.getFullYear() ? 'rgb(9, 86, 202) 4px solid' : ''"
+        [style.color]="day.month === shownMonth ? '' : 'var(--text-color-disabled, black)'"
+        >{{day.day}}
+        </span>
+      </universal-button>
+    </div>
+  </div>
+  

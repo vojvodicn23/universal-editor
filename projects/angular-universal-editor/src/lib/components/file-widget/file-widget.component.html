@@ -1,0 +1,31 @@
+<div 
+    class="file-widget"
+    (mouseenter)="onMouseEnter()"
+    (mouseleave)="onMouseLeave()"
+>
+    <div class="file-widget-preview file" [class.file-dark-mode]="darkMode">
+        <div class="file-widget-edit">
+            <universal-button 
+                *ngIf="!editMode"
+                tooltip="Download file"
+                tooltipPosition="bellow"
+                (click)="downloadFile()"
+                ><icon icon="download" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+            </universal-button>
+
+            <universal-button 
+                *ngIf="editMode"
+                style="margin-left: auto;"
+                tooltip="Remove file"
+                tooltipPosition="bellow"
+                (click)="removeFile()"
+                ><icon icon="remove" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+            </universal-button>
+        </div>
+        
+    </div>
+    <div class="file-widget-info">
+        <div style="padding-right: 8px;">{{file?.file?.name}}</div>
+        <div>{{file?.file?.lastModified | date: 'dd MMM yyyy, hh:mm a'}}</div>
+    </div>
+</div>

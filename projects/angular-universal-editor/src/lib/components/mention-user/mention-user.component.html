@@ -1,0 +1,17 @@
+
+<div class="universal-editor-user"  [class.selected]="user?.isMouseEntered">
+    <div class="universal-editor-user-image">
+
+        <div class="universal-editor-user-avatar-image" *ngIf="user?.imageUrl">
+            <img [src]="user.imageUrl" alt="Random Unsplash Image" width="32" height="32" style="border-radius: 50%;">
+        </div>
+
+        <div class="universal-editor-user-avatar" *ngIf="!user?.imageUrl">
+            {{initials}}
+        </div>
+    </div>
+    <div class="universal-editor-user-info">
+        <div class="universal-editor-user-fullname">{{user?.firstName}} {{user?.lastName}}</div>
+        <div class="universal-editor-user-email">{{user?.email}}</div>
+    </div>
+</div>

@@ -1,0 +1,481 @@
+<div class="universal-editor"
+[style.--background-color]="darkMode ? '#2F353B' : 'white'"
+[style.--background-header-color]="darkMode ? '#1B1F23' : 'white'"
+[style.--border-color]="darkMode ? '#454F59' : '#8692A6'" 
+[style.--text-color]="darkMode ? '#B6C2CF' : 'black'" 
+[style.--text-color-disabled]="darkMode ? 'black' : '#B6C2CF'" 
+[style.--button-hover-color]="darkMode ? '#56595c' : 'lightgray'" 
+[style.--button-active-color]="darkMode ? '#3681EB' : 'lightblue'" 
+[style.--button-active-hover-color]="darkMode ? '#2666BF' : '#6DCAE8'"  
+[style.--universal-tag-color]="darkMode ? '#3681EB' : 'blue'" 
+[style.--tooltip-color]="darkMode ? 'lightgray' : 'gray'" 
+[style.--tooltip-hover-color]="darkMode ? 'gray' : 'lightgray'" 
+[style.--tooltip-text-color]="darkMode ? '#2e2d2d' : 'white'" 
+[style.--background-file-widget-color]="darkMode ? '#22272B' : '#091E420F'"
+[style.--background-code-color]="darkMode ? '#1B1F23' : '#091E420F'"
+[style.--background-table-header-color]="darkMode ? '#22272B' : '#F4F2F2'"
+
+>
+    <div class="universal-editor-header" *ngIf="config.showToolbar && config.editMode">
+        <text-styles
+        [disabled]="textStyleDisabled"
+        *ngIf="config.enableTextStyles"
+        #textStyles
+        (onStyleChange)="onStyleChange($event)"
+        [darkMode]="darkMode"
+        [editorWidth$]="editorWidth$"
+        ></text-styles>
+
+        <vertical-line></vertical-line>
+
+        <universal-button 
+        *ngIf="config.enableBold"
+        [isDisabled]="boldDisabled"
+        [isSelected]="isBold"
+        tooltip="Bold Ctrl+B"
+        (click)="onSelectBold()"
+        ><icon icon="bold" [color]="darkMode ? (boldDisabled ? 'black' : '#B6C2CF') : (boldDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <universal-button 
+        *ngIf="config.enableItalic"
+        [isDisabled]="italicDisabled"
+        tooltip="Italic Ctrl+I"
+        [isSelected]="isItalic"
+        (click)="onSelectItalic()"
+        ><icon icon="italic" [color]="darkMode ? (italicDisabled ? 'black' : '#B6C2CF') : (italicDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <universal-button 
+        *ngIf="config.enableUnderline && editorWidth >= editorWidthM"
+        [isDisabled]="underlineDisabled"
+        tooltip="Underline Ctrl+U"
+        [isSelected]="isUnderline"
+        (click)="onSelectUnderline()"
+        ><icon icon="underline" [color]="darkMode ? (underlineDisabled ? 'black' : '#B6C2CF') : (underlineDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <universal-button 
+        *ngIf="config.enableStrikethrough && editorWidth >= editorWidthM"
+        [isDisabled]="strikethroughDisabled"
+        tooltip="Strikethrough Ctrl+Shift+S"
+        [isSelected]="isStrikethrough"
+        (click)="onSelectStrikethrough()"
+        ><icon icon="strikethrough" [color]="darkMode ? (strikethroughDisabled ? 'black' : '#B6C2CF') : (strikethroughDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <universal-button 
+        *ngIf="config.enableSubscript && editorWidth >= editorWidthM"
+        [isDisabled]="subscriptDisabled"
+        tooltip="Subscript Ctrl+Shift+,"
+        [isSelected]="isSubscript"
+        (click)="onSelectSubscript()"
+        ><icon icon="subscript" [color]="darkMode ? (subscriptDisabled ? 'black' : '#B6C2CF') : (subscriptDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <universal-button 
+        *ngIf="config.enableSuperscript && editorWidth >= editorWidthM"
+        [isDisabled]="superscriptDisabled"
+        tooltip="Superscript Ctrl+Shift+."
+        [isSelected]="isSuperscript"
+        (click)="onSelectSuperscript()"
+        ><icon icon="superscript" [color]="darkMode ? (superscriptDisabled ? 'black' : '#B6C2CF') : (superscriptDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <universal-button 
+        *ngIf="config.enableClearFormatting && editorWidth >= editorWidthM"
+        [isDisabled]="clearFormattingDisabled"
+        tooltip="Clear formatting Ctrl+\"
+        (click)="onClearFormatting()"
+        ><icon icon="format-clear" [color]="darkMode ? (clearFormattingDisabled ? 'black' : '#B6C2CF') : (clearFormattingDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <more-format
+        *ngIf="editorWidth < editorWidthM"
+        (onFormat)="onFormat($event)"
+        [darkMode]="darkMode"
+        [isUnderline]="isUnderline"
+        [isStrikethrough]="isStrikethrough"
+        [isSubscript]="isSubscript"
+        [isSuperscript]="isSuperscript"
+
+        [enableUnderline]="config.enableUnderline"
+        [enableStrikethrough]="config.enableStrikethrough"
+        [enableSubscript]="config.enableSubscript"
+        [enableSuperscript]="config.enableSuperscript"
+        [enableClearFormatting]="config.enableClearFormatting"
+
+
+        [underlineDisabled]="underlineDisabled"
+        [strikethroughDisabled]="strikethroughDisabled"
+        [subscriptDisabled]="subscriptDisabled"
+        [superscriptDisabled]="superscriptDisabled"
+        [clearFormattingDisabled]="clearFormattingDisabled"
+        ></more-format>
+
+        <vertical-line></vertical-line>
+
+        <text-color
+        #textColor
+        *ngIf="config.enableTextColor"
+        [disabled]="textColorDisabled"
+        [colors]="textColors"
+        (onColorChange)="onTextColorChange($event)"
+        [defaultColorName]="config.defaultTextColor"
+        [darkMode]="darkMode"
+        ></text-color>
+
+        <vertical-line></vertical-line>
+
+        <universal-button 
+        *ngIf="config.enableBulletList"
+        [isDisabled]="bulletListDisabled"
+        tooltip="Bullet list Ctrl+Shift+8"
+        [isSelected]="isBulletList"
+        (click)="onBulletListClick()"
+        ><icon icon="bullet-list" [color]="darkMode ? (bulletListDisabled ? 'black' : '#B6C2CF') : (bulletListDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <universal-button 
+        *ngIf="config.enableNumberedList"
+        [isDisabled]="numberedListDisabled"
+        tooltip="Numbered list Ctrl+Shift+7"
+        [isSelected]="isNumberedList"
+        (click)="onNumberedListClick()"
+        ><icon icon="number-list" [color]="darkMode ? (numberedListDisabled ? 'black' : '#B6C2CF') : (numberedListDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <universal-button 
+        *ngIf="config.enableTable"
+        [isDisabled]="tableDisabled"
+        tooltip="Table Shift+Alt+T"
+        (click)="addTable()"
+        ><icon icon="table" [color]="darkMode ? (tableDisabled ? 'black' : '#B6C2CF') : (tableDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+        
+        <vertical-line></vertical-line>
+
+        <universal-button 
+        class="mention-button"
+        *ngIf="config.enableMention && editorWidth >= editorWidthS"
+        [isDisabled]="mentionDisabled"
+        tooltip="Mention @"
+        (click)="onMentionClick()"
+        ><icon icon="mention" [color]="darkMode ? (mentionDisabled ? 'black' : '#B6C2CF') : (mentionDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button> 
+
+        <universal-button 
+        *ngIf="config.enableLink && editorWidth >= editorWidthS"
+        [isDisabled]="linkDisabled"
+        tooltip="Link Ctrl+K"
+        (click)="showAddEditLink(true, 'Add')"
+        ><icon icon="link" [color]="darkMode ? (linkDisabled ? 'black' : '#B6C2CF') : (linkDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button> 
+
+        <universal-button 
+        *ngIf="config.enableFile && editorWidth >= editorWidthS"
+        [isDisabled]="fileDisabled"
+        tooltip="Insert image or file"
+        (click)="uploadFile()"
+        ><icon icon="file" [color]="darkMode ? (fileDisabled ? 'black' : '#B6C2CF') : (fileDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button> 
+
+        <universal-button 
+        *ngIf="config.enableCode && editorWidth >= editorWidthS"
+        [isDisabled]="codeDisabled"
+        tooltip="Insert code snippet"
+        (click)="addCode('\u00A0')"
+        ><icon icon="code" [color]="darkMode ? (codeDisabled ? 'black' : '#B6C2CF') : (codeDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <universal-button 
+        class="table-button"
+        *ngIf="config.enableDate && editorWidth >= editorWidthS"
+        [isDisabled]="dateDisabled"
+        tooltip="Insert date"
+        (click)="addDate()"
+        ><icon icon="date" [color]="darkMode ? (dateDisabled ? 'black' : '#B6C2CF') : (dateDisabled ? '#B6C2CF' : 'black')"></icon>
+        </universal-button>
+
+        <!-- <universal-button 
+        *ngIf="true && editorWidth >= editorWidthS"
+        [isDisabled]="true"
+        tooltip="Insert info widget"
+        ><icon icon="info" [color]="darkMode ? (true ? 'black' : '#B6C2CF') : (true ? '#B6C2CF' : 'black')"></icon>
+        </universal-button> -->
+
+        <more-options
+        *ngIf="editorWidth < editorWidthS"
+        (onOptions)="onOptions($event)"
+        [darkMode]="darkMode"
+
+        [enableMention]="config.enableMention"
+        [enableLink]="config.enableLink"
+        [enableFile]="config.enableFile"
+        [enableCode]="config.enableCode"
+        [enableDate]="config.enableDate"
+
+        [mentionDisabled]="mentionDisabled"
+        [linkDisabled]="linkDisabled"
+        [fileDisabled]="fileDisabled"
+        [codeDisabled]="codeDisabled"
+        [dateDisabled]="dateDisabled"
+        ></more-options>
+    </div>
+
+
+    <div #editor  
+        class="universal-editor-content"
+        [style.border-bottom]="files.length > 0 ? 'none' : ''"
+        [style.border-bottom-right-radius]="files.length > 0 ? '' : '8px'"
+        [style.border-bottom-left-radius]="files.length > 0 ? '' : '8px'"
+        [style.border-top-left-radius]="config.showToolbar && config.editMode ? '' : '8px'"
+        [style.border-top-right-radius]="config.showToolbar && config.editMode ? '' : '8px'"
+        [attr.contenteditable]="config.editMode"
+        [attr.placeholderValue]="config.editMode ? config.placeholderText : ''"
+        [innerHTML]="innerHtml"
+        (focusout)="saveCaretPosition()"
+        (input)="onInput($event)"
+        (keydown)="onKeydown($event)"
+        (paste)="handlePaste($event)"
+    >
+    </div>
+
+    <div class="universal-editor-files" *ngIf="files.length > 0">   
+        <file-widget *ngFor="let file of files" 
+            [darkMode]="darkMode" 
+            [file]="file" 
+            [editMode]="config.editMode" 
+            (onRemoveFile)="removeFile($event)"
+        >
+        </file-widget>
+    </div>
+        
+
+
+    <div class="universal-editor-mention-backdrop" *ngIf="config.enableMention && config.editMode"></div>
+    <div class="universal-editor-mention" *ngIf="config.enableMention && config.editMode">
+        <div *ngFor="let user of filteredUsers">
+            <mention-user 
+                [user]="user"
+                (click)="onSelectUser(user)"
+                (mouseenter)="onMouseEnter(user)"
+                >
+            </mention-user>
+        </div>
+        <div *ngIf="filteredUsers.length === 0">
+            <mention-user></mention-user>
+        </div>    
+    </div>
+
+
+    <div class="universal-editor-popup universal-editor-link" *ngIf="config.enableLink && config.editMode">
+        <universal-button 
+        *ngIf="config.editMode"
+        tooltip="Edit link"
+        (click)="showAddEditLink(true, 'Edit')"
+        ><icon icon="edit" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        tooltip="Open link in a new tab"
+        (click)="openLink()"
+        ><icon icon="open-link" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        *ngIf="config.editMode"
+        tooltip="Unlink"
+        (click)="unLink()"
+        ><icon icon="unlink" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        [isSelected]="copySelected"
+        tooltip="Copy Link"
+        (click)="copyLink()"
+        ><icon icon="copy" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        *ngIf="config.editMode"
+        id="remove-button-link"
+        tooltip="Remove"
+        (click)="removeLink()"
+        (mouseenter)="onRemoveLinkEnter()"
+        (mouseleave)="onRemoveLinkLeave()"
+        ><icon icon="remove" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+    </div>
+    <div class="universal-editor-popup-edit universal-editor-link-edit" *ngIf="config.enableLink && config.editMode">
+        <edit-link
+        [data]="linkData" 
+        [link$]="link$"
+        (onCancelLink)="showAddEditLink(false, 'Add')"
+        (onSubmitLink)="onSubmitLink($event)"
+        ></edit-link>
+    </div>
+
+    
+    <div class="img-wrapper-sizer" (mousedown)="resizeImage($event)" *ngIf="config.enableFile && config.editMode">
+        <div class="img-wrapper-sizer-visual"></div>
+    </div>
+    <div class="universal-editor-popup universal-editor-img" *ngIf="config.enableFile && config.editMode">
+        <universal-button 
+        tooltip="Edit alt text"
+        (click)="showAddEditAltText(true)"
+        ><icon icon="alt-text" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        [isSelected]="copySelected"
+        tooltip="Copy Image"
+        (click)="copyImage()"
+        ><icon icon="copy" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        id="remove-button-img"
+        tooltip="Remove"
+        (click)="removeFile()"
+        (mouseenter)="onRemoveImgEnter()"
+        (mouseleave)="onRemoveImgLeave()"
+        ><icon icon="remove" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+    </div>
+    <div class="universal-editor-popup-edit universal-editor-altText-edit" *ngIf="config.enableFile && config.editMode">
+        <alt-text-img
+        [data]="altText" 
+        [altText$]="altText$"
+        (onCancelAltText)="showAddEditAltText(false)"
+        (onSubmitAltText)="onSubmitAltText($event)"
+        ></alt-text-img>
+    </div>
+
+    
+    <div class="universal-editor-popup universal-editor-code" *ngIf="config.enableCode && config.editMode">
+        <universal-button
+        *ngIf="!isExpandedCode"
+        tooltip="Expand to edit"
+        (click)="expandCollapseCode(true)"
+        ><icon icon="unfold-more" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <universal-button 
+        *ngIf="isExpandedCode"
+        tooltip="Collapse"
+        (click)="expandCollapseCode(false)"
+        ><icon icon="unfold-less" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        [isSelected]="copySelected"
+        tooltip="Copy code"
+        (click)="copyCode()"
+        ><icon icon="copy" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        id="remove-button-code"
+        tooltip="Remove"
+        (click)="removeCode()"
+        (mouseenter)="onRemoveCodeEnter()"
+        (mouseleave)="onRemoveCodeLeave()"
+        ><icon icon="remove" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+    </div>
+
+
+    <div class="universal-editor-popup universal-editor-table" *ngIf="config.enableTable && config.editMode">
+
+        <universal-button 
+        tooltip="Insert column right"
+        (click)="insertColumn()"
+        (mouseenter)="onInsertColumnEnter()"
+        (mouseleave)="onInsertColumnLeave()"
+        ><icon icon="insert-column" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        tooltip="Insert row below"
+        (click)="insertRow()"
+        (mouseenter)="onInsertRowEnter()"
+        (mouseleave)="onInsertRowLeave()"
+        ><icon icon="insert-row" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        id="remove-button-column"
+        tooltip="Remove column"
+        (click)="removeColumn()"
+        (mouseenter)="onRemoveColumnEnter()"
+        (mouseleave)="onRemoveColumnLeave()"
+        ><icon icon="remove-column" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        id="remove-button-row"
+        tooltip="Remove row"
+        (click)="removeRow()"
+        (mouseenter)="onRemoveRowEnter()"
+        (mouseleave)="onRemoveRowLeave()"
+        ><icon icon="remove-row" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        id="remove-button-cell"
+        tooltip="Clear cell"
+        (click)="clearCell()"
+        (mouseenter)="onRemoveCellEnter()"
+        (mouseleave)="onRemoveCellLeave()"
+        ><icon icon="backspace" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+
+        <vertical-line height="15px"></vertical-line>
+
+        <universal-button 
+        id="remove-button-table"
+        tooltip="Remove"
+        (click)="removeTable()"
+        (mouseenter)="onRemoveTableEnter()"
+        (mouseleave)="onRemoveTableLeave()"
+        ><icon icon="remove" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+        </universal-button>
+    </div>
+
+
+    <datepicker class="universal-editor-datepicker" *ngIf="config.enableDate && config.editMode"
+        [darkMode]="darkMode"
+        [currentDate$]="currentDate$"
+        (onSelectDate)="onSelectDate($event)"
+    >
+    </datepicker>
+
+    
+
+</div>
+

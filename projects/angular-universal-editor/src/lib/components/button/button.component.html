@@ -1,0 +1,15 @@
+<button 
+    class="universal-editor-button"
+    [class.selected]="isSelected || isOpen"    
+    [class.bigButtton]="bigButtton"    
+    [tooltipText]="tooltip"
+    [tooltipPostition]="tooltipPosition"
+    [disabled]="isDisabled"
+    >
+    <ng-content></ng-content>
+    <icon *ngIf="showIcon"
+        [icon]="isOpen ? 'expand-less' : 'expand-more'" 
+        [color]="darkMode ? (isDisabled ? 'black' : '#B6C2CF') : (isDisabled ? '#B6C2CF' : 'black')"
+    >
+    </icon>
+</button>

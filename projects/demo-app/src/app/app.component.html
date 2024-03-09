@@ -1,0 +1,27 @@
+
+<div>
+  <div class="button">
+      <button (click)="changeTheme()" style="cursor: pointer;">{{darkMode ? 'Light Mode' : 'Dark Mode'}}</button>
+  </div>
+  <div class="editor">
+      <angular-universal-editor [style.width]="enableEditor1 ? '50%' : '100%'"
+          [config]="config"
+          [mentionUsers]="users"
+          (onChangeMentionUsers)="onChangeUsers($event)"
+          (onFilesChanged)="onFilesChanged($event)"
+          (onEditorReady)="onEditorReady($event)"
+          (onChange)="onChangeText($event)"
+      ></angular-universal-editor>
+
+      <angular-universal-editor style="width: 50%; margin-top: 40.6px;" *ngIf="enableEditor1"
+          [config]="config1"
+          (onEditorReady)="onEditorReady1($event)"
+
+      ></angular-universal-editor>
+  </div>
+
+</div>
+
+
+
+

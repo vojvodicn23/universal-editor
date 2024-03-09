@@ -1,0 +1,28 @@
+
+
+.universal-editor-dropdown-content-text-styles{
+    background-color: var(--background-color, white);
+    border-color: var(--border-color,#8692A6);  
+    display: none;
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    z-index: 5;
+}
+
+.universal-editor-style{
+    padding: 5px 14px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.universal-editor-style:hover{
+    background-color: var(--button-hover-color,lightgray);
+}
+
+.universal-editor-style-selected{
+    background-color: var(--button-active-color,lightblue);
+}

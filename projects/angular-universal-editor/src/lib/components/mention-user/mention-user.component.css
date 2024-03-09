@@ -1,0 +1,43 @@
+.universal-editor-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: left; 
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 5px;
+}
+
+.selected{
+    background-color: var(--button-hover-color,lightgray);
+}
+
+.universal-editor-user-image{
+    width: 40px;
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.universal-editor-user-avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: aquamarine;
+    color: black;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+}
+
+.universal-editor-user-avatar-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}

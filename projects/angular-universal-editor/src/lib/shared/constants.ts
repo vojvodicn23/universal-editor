@@ -1,0 +1,60 @@
+export const Const = {
+    colors: [
+        { colorName: 'Black', colorCode: '#000000', selected: false },
+        { colorName: 'Light Gray', colorCode: '#B6C2CF', selected: false },
+        { colorName: 'Gainsboro', colorCode: '#DCDCDC', selected: false },
+        { colorName: 'Red', colorCode: '#FF0000', selected: false },
+        { colorName: 'Green', colorCode: '#008000', selected: false },
+        { colorName: 'Blue', colorCode: '#0000FF', selected: false },
+        { colorName: 'Yellow', colorCode: '#FFFF00', selected: false },
+        { colorName: 'Cyan', colorCode: '#00FFFF', selected: false },
+        { colorName: 'Magenta', colorCode: '#FF00FF', selected: false },
+        { colorName: 'Gray', colorCode: '#808080', selected: false },
+        { colorName: 'Maroon', colorCode: '#800000', selected: false },
+        { colorName: 'Olive', colorCode: '#808000', selected: false },
+        { colorName: 'Purple', colorCode: '#800080', selected: false },
+        { colorName: 'Teal', colorCode: '#008080', selected: false },
+        { colorName: 'Navy', colorCode: '#000080', selected: false },
+        { colorName: 'Coral', colorCode: '#FF7F50', selected: false },
+        { colorName: 'Turquoise', colorCode: '#40E0D0', selected: false },
+        { colorName: 'Salmon', colorCode: '#FA8072', selected: false },
+        { colorName: 'Lime', colorCode: '#00FF00', selected: false },
+        { colorName: 'Gold', colorCode: '#FFD700', selected: false },
+        { colorName: 'Orchid', colorCode: '#DA70D6', selected: false }
+    ],
+    colorsDarkMode: [
+        { colorName: 'Light Gray', colorCode: '#B6C2CF', selected: false },
+        { colorName: 'Black', colorCode: '#000000', selected: false },
+        { colorName: 'Gainsboro', colorCode: '#DCDCDC', selected: false },
+        { colorName: 'Red', colorCode: '#FF0000', selected: false },
+        { colorName: 'Green', colorCode: '#008000', selected: false },
+        { colorName: 'Blue', colorCode: '#0000FF', selected: false },
+        { colorName: 'Yellow', colorCode: '#FFFF00', selected: false },
+        { colorName: 'Cyan', colorCode: '#00FFFF', selected: false },
+        { colorName: 'Magenta', colorCode: '#FF00FF', selected: false },
+        { colorName: 'Gray', colorCode: '#808080', selected: false },
+        { colorName: 'Maroon', colorCode: '#800000', selected: false },
+        { colorName: 'Olive', colorCode: '#808000', selected: false },
+        { colorName: 'Purple', colorCode: '#800080', selected: false },
+        { colorName: 'Teal', colorCode: '#008080', selected: false },
+        { colorName: 'Navy', colorCode: '#000080', selected: false },
+        { colorName: 'Coral', colorCode: '#FF7F50', selected: false },
+        { colorName: 'Turquoise', colorCode: '#40E0D0', selected: false },
+        { colorName: 'Salmon', colorCode: '#FA8072', selected: false },
+        { colorName: 'Lime', colorCode: '#00FF00', selected: false },
+        { colorName: 'Gold', colorCode: '#FFD700', selected: false },
+        { colorName: 'Orchid', colorCode: '#DA70D6', selected: false }
+    ],
+
+    editorWidthL: 660,
+    editorWidthM: 590,
+    editorWidthS: 500,
+
+    urlRegex: /(http|https|ftp):\/\/(\w+:?\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/,
+    codeRegex: /(;$)|(\w+\s*\([^)]*\))|(\w+\.\w+)|(\w+->\w+)|([{}[\]])|(\/\*[\s\S]*?\*\/|\/\/[^\r\n]*)|([+\*&|<>=!]{1,2})|([A-Z][a-z0-9]+[A-Z][a-z0-9]+)|(\w+\s*::\s*\w+)|(__\w+__)|(\{[^}]*\})|(\[[^\]]*\])|(\([^)]*\))/,
+
+
+    no_image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAbJJREFUaEPtmStPxUAQhb9rSPgFGAQOgiAIEh5B4ECQ4HDgUDiwBILAETBIMCAxJBhQoHg5DAkQHIa/gIFOsg2b0m2bttttkxl3b2e658w5s71326Pj0es4fpRAaAVVgbYrMAocAPOBgF4DG8CLa/0sC00CD4GAJ5edAh7TsGQREPBCog0h4IXEv8gi8GNlhxr2XAxKwLO/VIG4wToDJa2mFlILlbROXKYWUguphf46kPos0t9CFS2SV97KXWgW+Aae8tADrSPQD3wYAkNtIrAQ/WO6KgDoElg0eWfAak5NIwoMAO+R3DvAYQagXWA7cX0NOM6oaYTADTBnQAwDbymAloALB9AR4NVxzTuBfWDTWvw5AjqeADNofN/nAHkPzIQgsAKcpiy8B2xZ398B0zleF+vJ+U8yvCkwBki3XSEdlc4eAesFhltSloHzRK43AgJeSLji0wz1SUHwkiY1E8CXVeOFgNhG7OMjRAFRIo7aCcS7jQ/w9j1vzYfaCfgG3tgQN0VEFYg73cmDrc4fr3f+BYfYp9OvmJraaSqtE2o4K4G2i5VAba0seSNVoGTjaiv7BWJvbTHhStu4AAAAAElFTkSuQmCC',
+
+    expirationDate: new Date(2024, 5, 1),
+}

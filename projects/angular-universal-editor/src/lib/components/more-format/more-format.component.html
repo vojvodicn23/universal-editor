@@ -1,0 +1,47 @@
+
+<div class="universal-editor-more-format">
+
+    <universal-button [showIcon]="true" tooltip="More formatting" [isOpen]="isOpen"
+     [isDisabled]="disabled" [darkMode]="darkMode" [isSelected]="isUnderline || isStrikethrough || isSubscript || isSuperscript">
+        <icon icon="more" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+    </universal-button>
+    
+
+    <div class="universal-editor-dropdown-content-more-format">
+        <div class="universal-editor-format" (click)="onSelect('Underline', underlineDisabled)" *ngIf="enableUnderline"
+        [class.universal-editor-format-selected]="isUnderline"
+        [class.universal-editor-format-disabled]="underlineDisabled"
+        >
+            <span>Underline</span><span class="format-shortcut">Ctrl+U</span>
+        </div>
+        <div class="universal-editor-format" (click)="onSelect('Strikethrough', strikethroughDisabled)" *ngIf="enableStrikethrough"
+        [class.universal-editor-format-selected]="isStrikethrough"
+        [class.universal-editor-format-disabled]="strikethroughDisabled"
+
+        >
+            <span>Strikethrough</span><span class="format-shortcut">Ctrl+Shift+S</span>
+        </div>
+        <div class="universal-editor-format" (click)="onSelect('Subscript', subscriptDisabled)" *ngIf="enableSubscript"
+        [class.universal-editor-format-selected]="isSubscript"
+        [class.universal-editor-format-disabled]="subscriptDisabled"
+
+        >
+            <span>Subscript</span><span class="format-shortcut">Ctrl+Shift+,</span>
+        </div>
+        <div class="universal-editor-format" (click)="onSelect('Superscript', superscriptDisabled)" *ngIf="enableSuperscript"
+        [class.universal-editor-format-selected]="isSuperscript"
+        [class.universal-editor-format-disabled]="superscriptDisabled"
+
+        >
+            <span>Superscript</span><span class="format-shortcut">Ctrl+Shift+.</span>
+        </div>
+        <div class="universal-editor-format" (click)="onSelect('Clear formatting', clearFormattingDisabled)" *ngIf="enableClearFormatting"
+        [class.universal-editor-format-disabled]="clearFormattingDisabled"
+
+        >
+            <span>Clear formatting</span><span class="format-shortcut">Ctrl+\</span>
+        </div>
+        
+    </div>
+
+</div>

@@ -1,0 +1,44 @@
+
+<div class="universal-editor-more-options">
+
+    <universal-button [showIcon]="true" tooltip="More options" [isOpen]="isOpen"
+     [isDisabled]="disabled" [darkMode]="darkMode">
+        <icon icon="more" [color]="darkMode ? '#B6C2CF' : 'black'"></icon>
+    </universal-button>
+    
+
+    <div class="universal-editor-dropdown-content-more-options">
+        <div class="universal-editor-options" (click)="onSelect('Mention', mentionDisabled)"
+        [class.universal-editor-options-disabled]="mentionDisabled" *ngIf="enableMention"
+        >
+            <span>Mention</span><span class="options-shortcut">@</span>
+        </div>
+        <div class="universal-editor-options" (click)="onSelect('Link', linkDisabled)"
+        [class.universal-editor-options-disabled]="linkDisabled" *ngIf="enableLink"
+        >
+            <span>Link</span><span class="options-shortcut">Ctrl+K</span>
+        </div>
+        <div class="universal-editor-options" (click)="onSelect('File', fileDisabled)"
+        [class.universal-editor-options-disabled]="fileDisabled" *ngIf="enableFile"
+        >
+            <span>Insert image or file</span>
+        </div>
+        <div class="universal-editor-options" (click)="onSelect('Code', codeDisabled)"
+        [class.universal-editor-options-disabled]="codeDisabled" *ngIf="enableCode"
+        >
+            <span>Insert code snippet</span>
+        </div>
+        <div class="universal-editor-options" (click)="onSelect('Date', dateDisabled)"
+        [class.universal-editor-options-disabled]="dateDisabled" *ngIf="enableDate"
+        >
+            <span>Insert date</span>
+        </div>
+        <!-- <div class="universal-editor-options" (click)="onSelect('Info', infoWidgetDisabled)"
+        [class.universal-editor-options-disabled]="infoWidgetDisabled"
+        >
+            <span>Insert info widget</span>
+        </div> -->
+        
+    </div>
+
+</div>

@@ -1,0 +1,25 @@
+
+<div class="universal-editor-text-color">
+
+    <universal-button [showIcon]="true" tooltip="Text color" [isOpen]="isOpen" [darkMode]="darkMode" [isDisabled]="disabled">
+        <div 
+        class="text-color"
+        [style.background-color]="selectedColor?.colorName !==defaultColorName ? selectedColor?.colorCode : ''"
+        [style.background-image]="selectedColor?.colorName !==defaultColorName ? 'none' : ''"
+        ></div>A 
+    </universal-button>
+
+    <div class="universal-editor-dropdown-content-text-color">
+        <div class="universal-editor-dropdown-content-row">
+            <div *ngFor="let color of colors">
+                <text-color-tile
+                [colorName]="color.colorName" 
+                [colorCode]="color.colorCode"
+                [selected]="color.selected"
+                (click)="onSelect(color)">
+                </text-color-tile>
+            </div>
+        </div>
+    </div>
+
+</div>

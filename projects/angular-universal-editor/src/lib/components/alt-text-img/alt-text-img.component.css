@@ -1,0 +1,19 @@
+.edit-altText-label{
+    margin-bottom: 3px;
+}
+
+.edit-altText-input{
+    margin-bottom: 12px;
+    background-color: var(--background-color, white);
+    border-color: var(--border-color, #8692A6); 
+    color: var(--text-color, black);
+    border-width: 1px;
+    border-style: solid;
+    height: 25px;
+    width: 400px;
+    padding: 4px 4px;
+}
+
+.edit-altText-input:focus{
+    outline: none;
+}
