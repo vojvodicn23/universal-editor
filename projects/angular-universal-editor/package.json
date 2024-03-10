@@ -1,6 +1,6 @@
 {
   "name": "angular-universal-editor",
-  "version": "1.0.6",
+  "version": "1.0.9",
 
   "description": "This is the universal editor library for Angular",
   "keywords": ["editor", "angular", "wysiwyg", "rich-text-editor", "wysiwyg-editor", "mentions", "text-format","universal-editor"],
@@ -8,10 +8,11 @@
     "name": "Nikola Vojvodic",
     "url": "https://github.com/vojvodicn23"
   },
+  "homepage": "https://github.com/vojvodicn23",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vojvodicn23/angular-universal-library"
+    "url": "https://github.com/vojvodicn23/universal-editor"
   },
 
   "peerDependencies": {
