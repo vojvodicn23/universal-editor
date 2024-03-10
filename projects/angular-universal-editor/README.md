@@ -5,8 +5,10 @@
 Universal Editor is a versatile web component designed to integrate seamlessly with Angular. It provides a rich text editing experience, customizable to fit the needs of various web applications.
 Supported Angular version is 16.
 
+[Click here to try it on StackBlitz](https://stackblitz.com/edit/stackblitz-starters-dt2mcb)
 
-![alt text](example.png)
+
+![alt text](https://github.com/vojvodicn23/universal-editor/blob/master/example.png?raw=true)
 
 ## Features
 
